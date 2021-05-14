@@ -35,7 +35,6 @@ export const AddTodoForm: React.FC<Props> = ({ addTodo }) => {
   const handleChangeEndDate = (e: any) => {
     setEndDate(e.target.value);
   };
-  console.log("test");
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
