@@ -1,6 +1,6 @@
 import React from "react";
 import { TodoListItem } from "..";
-import Card from "react-bootstrap/esm/Card";
+import "./TodoList.css";
 
 interface Props {
   todos: Todo[];

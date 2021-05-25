@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TodoList } from "../../components/TodoList/TodoList";
 import { AddTodoForm } from "../../components";
+import Card from "react-bootstrap/Card";
 
 const defaultTodos: Todo[] = [
   {
@@ -13,7 +14,7 @@ const defaultTodos: Todo[] = [
   },
 ];
 
-export const Main: React.FC = () => {
+const Main = () => {
   const [todos, setTodos] = useState(defaultTodos);
 
   const toggleTodo: ToggleTodo = (selectedTodo: Todo) => {
@@ -40,3 +41,5 @@ export const Main: React.FC = () => {
     </>
   );
 };
+
+export default Main;

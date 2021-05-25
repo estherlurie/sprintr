@@ -70,19 +70,26 @@ export const AddTodoForm: React.FC<Props> = ({ addTodo }) => {
   };
 
   return (
-    <form>
-      Text: <input type="text" value={text} onChange={handleChangeText} />
-      Energy:{" "}
-      <input type="number" value={energy} onChange={handleChangeEnergy} />
-      Category:{" "}
-      <input type="text" value={category} onChange={handleChangeCategory} />
-      Start Date:{" "}
-      <input type="date" value={startDate} onChange={handleChangeStartDate} />
-      Complete By Date:{" "}
-      <input type="date" value={endDate} onChange={handleChangeEndDate} />
-      <button type="submit" onClick={handleSubmit}>
-        Add Todo
-      </button>
-    </form>
+    <div className="AddTodoForm">
+      <form>
+        Text: <input type="text" value={text} onChange={handleChangeText} />
+        <br />
+        Energy:{" "}
+        <input type="number" value={energy} onChange={handleChangeEnergy} />
+        <br />
+        Category:{" "}
+        <input type="text" value={category} onChange={handleChangeCategory} />
+        <br />
+        Start Date:{" "}
+        <input type="date" value={startDate} onChange={handleChangeStartDate} />
+        <br />
+        Complete By Date:{" "}
+        <input type="date" value={endDate} onChange={handleChangeEndDate} />
+        <br />
+        <button className="SubmitButton" type="submit" onClick={handleSubmit}>
+          Add Todo
+        </button>
+      </form>
+    </div>
   );
 };
