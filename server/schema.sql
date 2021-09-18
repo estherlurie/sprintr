@@ -4,5 +4,6 @@ CREATE TABLE tasks (
   startDate DATE,
   endDate DATE,
   category TEXT,
-  energy INTEGER
+  energy INTEGER,
+  complete INTEGER
 )
