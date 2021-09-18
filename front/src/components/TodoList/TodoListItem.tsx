@@ -4,20 +4,23 @@ import "./TodoList.css";
 interface Props {
   todo: Todo;
   toggleTodo: ToggleTodo;
+  deleteTodo: DeleteTodo;
 }
 
-export const TodoListItem: React.FC<Props> = ({ todo, toggleTodo }) => {
+export const TodoListItem: React.FC<Props> = ({
+  todo,
+  toggleTodo,
+  deleteTodo,
+}) => {
   todo.startDate = new Date(todo.startDate);
   todo.endDate = new Date(todo.endDate);
+
   return (
     <>
       <li>
         <div className="ListItem">
-          <label
-            style={{
-              textDecoration: todo.complete ? "line-through" : undefined,
-            }}
-          >
+          <div className="actions">
+            Complete:
             <div className="ToggleTask">
               <input
                 type="checkbox"
@@ -27,6 +30,23 @@ export const TodoListItem: React.FC<Props> = ({ todo, toggleTodo }) => {
                 }}
               />
             </div>
+            Delete:
+            <div className="DeleteTask">
+              <button
+                className="DeleteButton"
+                onClick={() => {
+                  deleteTodo(todo);
+                }}
+              >
+                X
+              </button>
+            </div>
+          </div>
+          <label
+            style={{
+              textDecoration: todo.complete ? "line-through" : undefined,
+            }}
+          >
             <div>
               <strong>{todo.text}</strong>
               <br />

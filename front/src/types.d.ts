@@ -1,6 +1,7 @@
 // TYPES
 
 interface Todo {
+  id: number;
   text: string;
   complete: boolean;
   startDate: Date;
@@ -14,3 +15,5 @@ interface Todo {
 type ToggleTodo = (selectedTodo: Todo) => void;
 
 type AddTodo = (todo: Todo) => void;
+
+type DeleteTodo = (todo: Todo) => void;

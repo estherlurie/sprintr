@@ -40,6 +40,7 @@ export const AddTodoForm: React.FC<Props> = ({ addTodo }) => {
     e.preventDefault();
     if (errorCheck()) {
       let newTodo = {
+        id: -1, // placeholder, id is added automatically by db
         energy: energy,
         text: text,
         startDate: new Date(startDate),
