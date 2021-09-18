@@ -5,7 +5,7 @@ from contextlib import closing
 import data_accessor as da
 
 app = Flask(__name__)
-app.config["DATABASE"] = os.path.join(app.instance_path, DATABASE)
+app.config["DATABASE"] = os.path.join(app.instance_path, da.db_path())
 
 @app.teardown_appcontext
 def close_connection(exception):
@@ -23,3 +23,13 @@ def get_tasks():
 def create_task():
   task = request.json
   return da.create_task(task)
+
+@app.route("/tasks/update", methods=["PUT"])
+def update_task():
+  task = request.json
+  return da.update_task(task)
+
+@app.route("/tasks/delete", methods=["POST"])
+def delete_task():
+  task = request.json
+  return da.delete_task(task)
