@@ -7,6 +7,8 @@ interface Props {
 }
 
 export const TodoListItem: React.FC<Props> = ({ todo, toggleTodo }) => {
+  todo.startDate = new Date(todo.startDate);
+  todo.endDate = new Date(todo.endDate);
   return (
     <>
       <li>
@@ -16,24 +18,36 @@ export const TodoListItem: React.FC<Props> = ({ todo, toggleTodo }) => {
               textDecoration: todo.complete ? "line-through" : undefined,
             }}
           >
-            <input
-              type="checkbox"
-              checked={todo.complete}
-              onClick={() => {
-                toggleTodo(todo);
-              }}
-            />{" "}
+            <div className="ToggleTask">
+              <input
+                type="checkbox"
+                checked={todo.complete}
+                onClick={() => {
+                  toggleTodo(todo);
+                }}
+              />
+            </div>
             <div>
-              {todo.text}
-              {" | Energy: "}
+              <strong>{todo.text}</strong>
+              <br />
+              {"Energy: "}
               {todo.energy}
-              {" | Started: "}
+              <br />
+              {"Started: "}
               {todo.startDate.getMonth() +
                 1 +
                 "/" +
                 todo.startDate.getUTCDate() +
                 "/" +
                 todo.startDate.getUTCFullYear()}
+              <br />
+              {"Due: "}
+              {todo.endDate.getMonth() +
+                1 +
+                "/" +
+                todo.endDate.getUTCDate() +
+                "/" +
+                todo.endDate.getUTCFullYear()}
             </div>
           </label>
         </div>

@@ -17,7 +17,7 @@ export const AddTodoForm: React.FC<Props> = ({ addTodo }) => {
 
   const handleChangeEnergy = (e: any) => {
     let num = e.target.value;
-    if (num >= 1 && num <= 5) {
+    if (num >= 0 && num <= 5) {
       setEnergy(num);
     } else {
       alert("Energy must be a number between 1 and 5");
@@ -59,7 +59,7 @@ export const AddTodoForm: React.FC<Props> = ({ addTodo }) => {
     if (text === "") {
       alert("Cannot submit empty text");
       passed = false;
-    } else if (energy < 1 || energy > 5) {
+    } else if (energy < 0 || energy > 5) {
       alert("Energy must be between 1 and 5 inclusive");
       passed = false;
     } else if (category === "") {

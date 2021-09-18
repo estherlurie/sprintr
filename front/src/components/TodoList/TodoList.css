@@ -25,3 +25,11 @@
   color: blue;
   background-color: aqua;
 }
+
+.ToggleTask {
+  border-style: solid;
+  border-color: blue;
+  background-color: aqua;
+  width: 17px;
+  height: 17px;
+}
